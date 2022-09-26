@@ -1,0 +1,11 @@
+body{
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.home{
+    font-style: oblique;
+    color: white;
+    margin-top: 100px;
+    margin-left: 110px;
+}
