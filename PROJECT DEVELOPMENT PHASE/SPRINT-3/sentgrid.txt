@@ -1,0 +1,65 @@
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
+
+body = '''
+JOB RECOMMENDER 
+
+Hello first_name,
+
+Thank you for creating a account in this App we hope to serve you the best.
+In the last years, job recommender systems have become popular since they 
+successfully reduce information overload by generating personal-ized job 
+suggestions. Although in the literature exists a variety of techniques and
+strategies used as part of job recommender systems, most of them fail to 
+recommending job vacancies that fit properly to the job seekers profiles. 
+Thus, the contributions of this work are threefold, we: i) made publicly 
+available a new dataset formed by a set of job seekers profiles and a set 
+of job vacancies collected from different job search engine sites; ii) put
+forward the proposal of a framework for job recommendation based on 
+professional skills of job seekers; and iii) carried out an evaluation to 
+quantify empirically the recommendation abilities of two state-of-the-art 
+methods, considering different configurations, within the proposed framework. 
+We thus present a general panorama of job recommendation task aiming to 
+facilitate research and real-world application design regarding this important issue.
+
+Sincerely,
+
+employee_name
+
+'''
+sender = 'shruthiramesh2001@gmail.com'
+password = 'kabchcujcuxrvdve'
+receiver = 'shruthiramesh2001@gmail.com'
+
+message = MIMEMultipart()
+message['From'] = sender
+message['To'] = receiver
+message['Subject'] = 'This email has an attacment, a pdf file'
+
+message.attach(MIMEText(body, 'plain'))
+
+qrimage = "img4.jpg"
+
+binary_pdf = open(qrimage, 'rb')
+
+payload = MIMEBase('application', 'octate-stream', Name=qrimage)
+payload.set_payload((binary_pdf).read())
+
+encoders.encode_base64(payload)
+
+payload.add_header('Content-Decomposition', 'attachment', filename=qrimage)
+message.attach(payload)
+
+session = smtplib.SMTP('smtp.gmail.com', 587)
+
+session.starttls()
+
+session.login(sender, password)
+
+text = message.as_string()
+session.sendmail(sender, receiver, text)
+session.quit()
+print('Mail Sent')
