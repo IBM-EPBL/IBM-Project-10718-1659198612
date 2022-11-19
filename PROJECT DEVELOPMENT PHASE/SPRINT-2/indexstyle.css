@@ -1,0 +1,66 @@
+:root{
+    --primaryColor:rgba(27, 206, 206, 0.911);
+    --whileColor:rgba(225, 231, 231, 0.911);
+    --blackColor:rgb(28, 29, 48);
+    --greyColor:#f6f8fa;
+    --labelColor:#092a47;
+    --yellowColor:rgba(240, 240, 9, 0.856);
+
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:0;
+    outline:none;
+    font-family:'Nunito', sans-serif;
+
+}
+body{
+    width:100%;
+    height:auto;
+}
+h1{
+    line-height: 1.5;
+    color:aqua;
+}
+.navbar{
+    width:100%;
+    height:60px;
+    display:flex;
+    justify-content:space-between;
+    top:0;
+    left:0;
+    padding:1rem 2.5rem;
+    z-index:10;
+    color:var(--whiteColor);
+    background:black;
+}
+.navbar-menu{
+    
+    width:400px;
+    display:flex;
+    justify-content: space-between;
+
+}
+.navbar-menu >a {
+    text-decoration:none;
+}
+.menu-toggle{
+    display:block;
+}
+.menu-toggle .bar{
+width:15px;
+height:2px;
+margin:3px auto ;
+transition:all 0.3 ease-in-out;
+background-color:var(--whitecolor);
+cursor:pointer;
+}
+header{
+    width:100%;
+    height:80%;
+    background-image: url("images/img.jpg");
+    background-position:center;
+    background-repeat: no-repeat;
+    position:relative;
+}
